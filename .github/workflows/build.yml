@@ -26,12 +26,12 @@ jobs:
     - name: Test
       run: make test
 
-    - name: Install dependencies
-      run: |
-        go install github.com/mickael-menu/tesh@latest
+#    - name: Install dependencies
+#      run: |
+#        go install github.com/mickael-menu/tesh@latest
 
-    - name: Tesh
-      # See https://github.com/actions/runner/issues/241#issuecomment-924327172
-      shell: script --return --quiet --command "bash {0}"
-      run: make tesh
+#    - name: Tesh
+#      # See https://github.com/actions/runner/issues/241#issuecomment-924327172
+#      shell: script --return --quiet --command "bash {0}"
+#      run: make tesh
 
