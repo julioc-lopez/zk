@@ -21,15 +21,15 @@ jobs:
         check-latest: true
         go-version-file: 'go.mod'
 
-    - name: Install dependencies
-      run: |
-        go install github.com/mickael-menu/tesh@latest
-
     - name: Build
       run: make build
 
     - name: Test
       run: make test
+
+    - name: Install dependencies
+      run: |
+        go install github.com/mickael-menu/tesh@latest
 
     - name: Tesh
       # See https://github.com/actions/runner/issues/241#issuecomment-924327172
