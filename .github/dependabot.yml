@@ -13,4 +13,4 @@ updates:
     schedule:
       interval: "daily"
     # Disable version updates for gomod dependencies
-    open-pull-requests-limit: 0
+    open-pull-requests-limit: 3
