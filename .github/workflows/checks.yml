@@ -30,6 +30,13 @@ jobs:
     - name: Build zk
       run: make build
 
+    - name: govulncheck
+      continue-on-error: true
+      run: |
+        set -xue
+        go install golang.org/x/vuln/cmd/govulncheck@latest
+        govulncheck -test ./...
+
     - name: GoKart
       continue-on-error: true
       run: |
