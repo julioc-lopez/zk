@@ -31,7 +31,7 @@ jobs:
       run: go install github.com/praetorian-inc/gokart@latest
 
     - name: Run GoKart
-      run: gokart scan -s -o gokart-results.serif
+      run: gokart scan -s -o gokart-results.sarif
 
     # Upload the SARIF file generated in the previous step
     - name: Upload SARIF results file
