@@ -30,6 +30,9 @@ jobs:
     - name: Install GoKart
       run: go install github.com/praetorian-inc/gokart@latest
 
+    - name: Build zk
+      run: make build
+
     - name: Run GoKart
       run: gokart scan -s -o gokart-results.sarif
 
