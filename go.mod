@@ -13,7 +13,7 @@ require (
 	github.com/gosimple/slug v1.13.1
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
 	github.com/lestrrat-go/strftime v1.0.6
-	github.com/mattn/go-isatty v0.0.17
+	github.com/mattn/go-isatty v0.0.19
 	github.com/mattn/go-sqlite3 v1.14.16
 	github.com/mvdan/xurls v1.1.0
 	github.com/pelletier/go-toml v1.9.5
