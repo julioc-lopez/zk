@@ -10,7 +10,7 @@ require (
 	github.com/fatih/color v1.13.0
 	github.com/go-testfixtures/testfixtures/v3 v3.6.1
 	github.com/google/go-cmp v0.5.8
-	github.com/gosimple/slug v1.12.0
+	github.com/gosimple/slug v1.13.1
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
 	github.com/lestrrat-go/strftime v1.0.6
 	github.com/mattn/go-isatty v0.0.17
