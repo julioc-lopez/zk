@@ -66,21 +66,21 @@ func (t *newNoteTask) execute() (string, string, error) {
 	return path, content, nil
 }
 
-func (c *newNoteTask) generatePath(context newNoteTemplateContext, filenameTemplate Template) (string, newNoteTemplateContext, error) {
+func (t *newNoteTask) generatePath(context newNoteTemplateContext, filenameTemplate Template) (string, newNoteTemplateContext, error) {
 	var err error
 	var filename string
 	var path string
 
 	for i := 0; i < 50; i++ {
-		context.ID = c.genID()
+		context.ID = t.genID()
 
 		filename, err = filenameTemplate.Render(context)
 		if err != nil {
 			return "", context, err
 		}
 
-		path = filepath.Join(c.dir.Path, filename)
-		exists, err := c.fs.FileExists(path)
+		path = filepath.Join(t.dir.Path, filename)
+		exists, err := t.fs.FileExists(path)
 		if err != nil {
 			return "", context, err
 		} else if !exists {
@@ -91,7 +91,7 @@ func (c *newNoteTask) generatePath(context newNoteTemplateContext, filenameTempl
 	}
 
 	return "", context, ErrNoteExists{
-		Name: filepath.Join(c.dir.Name, filename),
+		Name: filepath.Join(t.dir.Name, filename),
 		Path: path,
 	}
 }
