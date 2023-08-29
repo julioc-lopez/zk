@@ -899,11 +899,11 @@ func boolPtr(v bool) *bool {
 }
 
 func isTrue(v *bool) bool {
-	return v != nil && *v == true
+	return v != nil && *v
 }
 
 func isFalse(v *bool) bool {
-	return v == nil || *v == false
+	return v == nil || !*v
 }
 
 func stringPtr(v string) *string {
