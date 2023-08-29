@@ -71,7 +71,7 @@ func (fs *fileStorageMock) IsDescendantOf(dir string, path string) (bool, error)
 }
 
 func (fs *fileStorageMock) Read(path string) ([]byte, error) {
-	content, _ := fs.files[path]
+	content := fs.files[path]
 	return []byte(content), nil
 }
 
