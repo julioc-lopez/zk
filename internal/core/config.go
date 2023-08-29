@@ -325,12 +325,10 @@ func ParseConfig(content []byte, path string, parentConfig Config, isGlobal bool
 	if note.DefaultTitle != "" {
 		config.Note.DefaultTitle = note.DefaultTitle
 	}
-	for _, v := range note.Exclude {
-		config.Note.Exclude = append(config.Note.Exclude, v)
-	}
-	for _, v := range note.Ignore {
-		config.Note.Exclude = append(config.Note.Exclude, v)
-	}
+
+	config.Note.Exclude = append(config.Note.Exclude, note.Exclude...)
+	config.Note.Exclude = append(config.Note.Exclude, note.Ignore...)
+
 	if tomlConf.Extra != nil {
 		for k, v := range tomlConf.Extra {
 			config.Extra[k] = v
@@ -446,9 +444,7 @@ func (c GroupConfig) merge(tomlConf tomlGroupConfig, name string) GroupConfig {
 	res := c.Clone()
 
 	if tomlConf.Paths != nil {
-		for _, p := range tomlConf.Paths {
-			res.Paths = append(res.Paths, p)
-		}
+		res.Paths = append(res.Paths, tomlConf.Paths...)
 	} else {
 		// If no `paths` config property was given for this group, we assume
 		// that its name will be used as the path.
@@ -480,12 +476,10 @@ func (c GroupConfig) merge(tomlConf tomlGroupConfig, name string) GroupConfig {
 	if note.DefaultTitle != "" {
 		res.Note.DefaultTitle = note.DefaultTitle
 	}
-	for _, v := range note.Exclude {
-		res.Note.Exclude = append(res.Note.Exclude, v)
-	}
-	for _, v := range note.Ignore {
-		res.Note.Exclude = append(res.Note.Exclude, v)
-	}
+
+	res.Note.Exclude = append(res.Note.Exclude, note.Exclude...)
+	res.Note.Exclude = append(res.Note.Exclude, note.Ignore...)
+
 	if tomlConf.Extra != nil {
 		for k, v := range tomlConf.Extra {
 			res.Extra[k] = v
