@@ -26,7 +26,6 @@ type Server struct {
 	server                 *glspserv.Server
 	notebooks              *core.NotebookStore
 	documents              *documentStore
-	noteContentParser      core.NoteContentParser
 	templateLoader         core.TemplateLoader
 	fs                     core.FileStorage
 	logger                 util.Logger
@@ -900,10 +899,6 @@ func boolPtr(v bool) *bool {
 
 func isTrue(v *bool) bool {
 	return v != nil && *v
-}
-
-func isFalse(v *bool) bool {
-	return v == nil || !*v
 }
 
 func stringPtr(v string) *string {
