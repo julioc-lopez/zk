@@ -50,13 +50,13 @@ func (cmd *Index) RunWithNotebook(container *cli.Container, notebook *core.Noteb
 
 	stats, err := notebook.IndexWithCallback(opts, func(change paths.DiffChange) {
 		if showProgress {
-			bar.Add(1)
+			_ = bar.Add(1)
 			bar.Describe(change.String())
 		}
 	})
 
 	if showProgress {
-		bar.Clear()
+		_ = bar.Clear()
 	}
 
 	if err != nil {
