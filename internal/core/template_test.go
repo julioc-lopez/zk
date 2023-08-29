@@ -36,16 +36,16 @@ func (m *templateLoaderMock) SpyFile(path string, content string) *templateSpy {
 	return spy
 }
 
-func (l *templateLoaderMock) LoadTemplate(template string) (Template, error) {
-	tpl, ok := l.templates[template]
+func (m *templateLoaderMock) LoadTemplate(template string) (Template, error) {
+	tpl, ok := m.templates[template]
 	if !ok {
 		panic("no template spy for content: " + template)
 	}
 	return tpl, nil
 }
 
-func (l *templateLoaderMock) LoadTemplateAt(path string) (Template, error) {
-	tpl, ok := l.fileTemplates[path]
+func (m *templateLoaderMock) LoadTemplateAt(path string) (Template, error) {
+	tpl, ok := m.fileTemplates[path]
 	if !ok {
 		panic("no template spy for path: " + path)
 	}
