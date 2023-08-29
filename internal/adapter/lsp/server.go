@@ -489,7 +489,7 @@ func NewServer(opts ServerOpts) *Server {
 
 		for _, note := range notes {
 			pos := strings.Index(note.RawContent, target.Path[0:len(target.Path)-3])
-			var line uint32 = 0
+			var line uint32
 			if pos < 0 {
 				line = 0
 			} else {
