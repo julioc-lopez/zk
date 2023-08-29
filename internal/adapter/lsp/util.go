@@ -62,7 +62,7 @@ func (b *jsonBoolean) UnmarshalJSON(data []byte) error {
 }
 
 type linkInfo struct {
-    note *core.MinimalNote
+	note     *core.MinimalNote
 	location *protocol.Location
 	title    *string
 }
