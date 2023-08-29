@@ -60,9 +60,11 @@ func TestLookupPaths(t *testing.T) {
 	root := fmt.Sprintf("/tmp/zk-test-%d", time.Now().Unix())
 	os.Remove(root)
 	path1 := filepath.Join(root, "1")
-	os.MkdirAll(path1, os.ModePerm)
+	err := os.MkdirAll(path1, os.ModePerm)
+	assert.Nil(t, err)
 	path2 := filepath.Join(root, "1")
-	os.MkdirAll(filepath.Join(path2, "subdir"), os.ModePerm)
+	err = os.MkdirAll(filepath.Join(path2, "subdir"), os.ModePerm)
+	assert.Nil(t, err)
 
 	sut := testLoader(LoaderOpts{LookupPaths: []string{path1, path2}})
 
@@ -80,17 +82,20 @@ func TestLookupPaths(t *testing.T) {
 	assert.Err(t, err, "cannot find template at "+test1)
 	assert.Nil(t, tpl1)
 
-	paths.WriteString(test1, "Test 1")
+	err = paths.WriteString(test1, "Test 1")
+	assert.Nil(t, err)
 	test(test1, "Test 1")       // absolute
 	test("test1.tpl", "Test 1") // relative
 
 	test2 := filepath.Join(path2, "test2.tpl")
-	paths.WriteString(test2, "Test 2")
+	err = paths.WriteString(test2, "Test 2")
+	assert.Nil(t, err)
 	test(test2, "Test 2")       // absolute
 	test("test2.tpl", "Test 2") // relative
 
 	test3 := filepath.Join(path2, "subdir/test3.tpl")
-	paths.WriteString(test3, "Test 3")
+	err = paths.WriteString(test3, "Test 3")
+	assert.Nil(t, err)
 	test(test3, "Test 3")              // absolute
 	test("subdir/test3.tpl", "Test 3") // relative
 }
