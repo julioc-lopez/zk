@@ -83,10 +83,9 @@ func ConvertQuery(query string) string {
 			closeTerm()
 			out += " OR "
 
-		// FTS5's + is ignored because it doesn't bring much to the syntax,
+		// FTS5's '+' is ignored because it doesn't bring much to the syntax,
 		// compared to explicit quotes.
 		case !inQuote && c == '+' && term == "":
-			break
 
 		// Term separators outside explicit quotes terminates the current term.
 		case !inQuote && termSeparators[c]:
