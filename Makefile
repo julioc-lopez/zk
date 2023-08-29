@@ -11,7 +11,10 @@ test:
 	$(call go,test,./...)
 
 # Run end-to-end tests.
-tesh: build
+install-tesh:
+	go install github.com/mickael-menu/tesh@latest
+
+tesh: build install-tesh
 	@PATH=".:$(shell pwd):$(PATH)" tesh tests tests/fixtures
 
 # Run end-to-end tests and prints difference as raw bytes.
