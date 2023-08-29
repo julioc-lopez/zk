@@ -49,6 +49,9 @@ func NewContainer(version string) (*Container, error) {
 	styler := core.NewProxyStyler(term)
 	logger := util.NewProxyLogger(util.NewStdLogger("zk: ", 0))
 	fs, err := fs.NewFileStorage("", logger)
+	if err != nil {
+		return nil, wrap(err)
+	}
 	config := core.NewDefaultConfig()
 
 	handlebars.Init(term.SupportsUTF8(), logger)
