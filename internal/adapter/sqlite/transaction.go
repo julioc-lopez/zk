@@ -1,6 +1,9 @@
 package sqlite
 
-import "database/sql"
+import (
+	"database/sql"
+	"errors"
+)
 
 // Inspired by https://pseudomuto.com/2018/01/clean-sql-transactions-in-golang/
 
@@ -54,10 +57,12 @@ func (db *DB) WithTransaction(fn TxFn) error {
 	defer func() {
 		if p := recover(); p != nil {
 			// A panic occurred, rollback and repanic.
-			tx.Rollback()
+			_ = tx.Rollback() // cannot handle error since this will panic again
 			panic(p)
 		} else if err != nil {
-			tx.Rollback()
+			if err2 := tx.Rollback(); err2 != nil {
+				err = errors.Join(err, err2)
+			}
 		} else {
 			err = tx.Commit()
 		}
