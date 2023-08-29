@@ -55,7 +55,11 @@ func (t *Terminal) Confirm(msg string, defaultAnswer bool) (confirmed, skipped b
 		Message: msg,
 		Default: defaultAnswer,
 	}
-	survey.AskOne(prompt, &confirmed)
+
+	if err := survey.AskOne(prompt, &confirmed); err != nil {
+		return false, false
+	}
+
 	return confirmed, false
 }
 
