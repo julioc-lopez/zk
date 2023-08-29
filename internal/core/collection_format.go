@@ -9,6 +9,7 @@ type CollectionFormatter func(collection Collection) (string, error)
 
 func newCollectionFormatter(template Template) (CollectionFormatter, error) {
 	return func(collection Collection) (string, error) {
+		//lint:ignore S1016 prefer using struct literal instead of conversion here
 		return template.Render(collectionFormatRenderContext{ //nolint:gosimple
 			ID:        collection.ID,
 			Kind:      collection.Kind,
