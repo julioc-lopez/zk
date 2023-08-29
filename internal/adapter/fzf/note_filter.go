@@ -145,7 +145,9 @@ func (f *NoteFilter) Apply(notes []core.ContextualNote) ([]core.ContextualNote, 
 		// The absolute path is appended at the end of the line to be used in
 		// the preview command.
 		absPathField := f.terminal.MustStyle(context.AbsPath, core.StyleUnderstate)
-		fzf.Add([]string{line, absPathField})
+		if err := fzf.Add([]string{line, absPathField}); err != nil {
+			return selectedNotes, err
+		}
 	}
 
 	selection, err := fzf.Selection()
