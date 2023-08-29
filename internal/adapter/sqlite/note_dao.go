@@ -536,7 +536,6 @@ func (d *NoteDAO) findRows(opts core.NoteFindOpts, selection noteSelection) (*sq
 				whereExprs = append(whereExprs, "n.raw_content REGEXP ?")
 				args = append(args, match)
 			}
-			break
 		}
 	}
 
