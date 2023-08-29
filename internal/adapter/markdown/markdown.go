@@ -7,12 +7,6 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/mickael-menu/zk/internal/adapter/markdown/extensions"
-	"github.com/mickael-menu/zk/internal/core"
-	"github.com/mickael-menu/zk/internal/util"
-	"github.com/mickael-menu/zk/internal/util/opt"
-	strutil "github.com/mickael-menu/zk/internal/util/strings"
-	"github.com/mickael-menu/zk/internal/util/yaml"
 	"github.com/mvdan/xurls"
 	"github.com/yuin/goldmark"
 	meta "github.com/yuin/goldmark-meta"
@@ -20,6 +14,13 @@ import (
 	"github.com/yuin/goldmark/extension"
 	"github.com/yuin/goldmark/parser"
 	"github.com/yuin/goldmark/text"
+
+	"github.com/mickael-menu/zk/internal/adapter/markdown/extensions"
+	"github.com/mickael-menu/zk/internal/core"
+	"github.com/mickael-menu/zk/internal/util"
+	"github.com/mickael-menu/zk/internal/util/opt"
+	strutil "github.com/mickael-menu/zk/internal/util/strings"
+	"github.com/mickael-menu/zk/internal/util/yaml"
 )
 
 // Parser parses the content of Markdown notes.
