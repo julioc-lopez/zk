@@ -238,25 +238,6 @@ func (d *NoteDAO) findIdsByPathRegex(regex string) ([]core.NoteID, error) {
 	return ids, nil
 }
 
-func (d *NoteDAO) findIdWithStmt(stmt *LazyStmt, args ...interface{}) (core.NoteID, error) {
-	row, err := stmt.QueryRow(args...)
-	if err != nil {
-		return core.NoteID(0), err
-	}
-
-	var id sql.NullInt64
-	err = row.Scan(&id)
-
-	switch {
-	case err == sql.ErrNoRows:
-		return 0, nil
-	case err != nil:
-		return 0, err
-	default:
-		return core.NoteID(id.Int64), nil
-	}
-}
-
 func (d *NoteDAO) FindIdByHref(href string, allowPartialHref bool) (core.NoteID, error) {
 	ids, err := d.FindIdsByHref(href, allowPartialHref)
 	if len(ids) == 0 || err != nil {
@@ -749,19 +730,6 @@ WHERE collection_id IN (SELECT id FROM collections t WHERE kind = '%s' AND (%s))
 	// d.logger.Println(args)
 
 	return d.tx.Query(query, args...)
-}
-
-func (d *NoteDAO) scanNoteID(row RowScanner) (core.NoteID, error) {
-	var id int
-	err := row.Scan(&id)
-	switch {
-	case err == sql.ErrNoRows:
-		return 0, nil
-	case err != nil:
-		return 0, err
-	default:
-		return core.NoteID(id), nil
-	}
 }
 
 func (d *NoteDAO) scanMinimalNote(row RowScanner) (*core.MinimalNote, error) {
