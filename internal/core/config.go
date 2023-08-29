@@ -516,7 +516,7 @@ type tomlNoteConfig struct {
 	IDLength     int      `toml:"id-length"`
 	IDCase       string   `toml:"id-case"`
 	Exclude      []string `toml:"exclude"`
-	Ignore      []string `toml:"ignore"` // Legacy alias to `exclude`
+	Ignore       []string `toml:"ignore"` // Legacy alias to `exclude`
 }
 
 type tomlGroupConfig struct {
