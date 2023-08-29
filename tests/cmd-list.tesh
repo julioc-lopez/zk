@@ -25,7 +25,7 @@ $ zk list --help
 >      --footer="\\n"       Arbitrary text printed at the end of the list.
 >  -d, --delimiter="\n"     Print notes delimited by the given separator.
 >  -0, --delimiter0         Print notes delimited by ASCII NUL characters. This
->                           is useful when used in conjunction with `xargs -0`.
+>                           is useful when used in conjunction with 'xargs -0'.
 >  -P, --no-pager           Do not pipe output into a pager.
 >  -q, --quiet              Do not print the total number of notes found.
 >
