@@ -187,12 +187,14 @@ func runAlias(container *cli.Container, args []string) (bool, error) {
 		cmd.Stderr = os.Stderr
 		err := cmd.Run()
 		if err != nil {
-			if err, ok := err.(*exec.ExitError); ok {
-				os.Exit(err.ExitCode())
+			var osError *exec.ExitError
+
+			if errors.As(err, &osError) {
+				os.Exit(osError.ExitCode())
 				return true, nil
-			} else {
-				return true, err
 			}
+
+			return true, err
 		}
 		return true, nil
 	}
