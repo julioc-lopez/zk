@@ -14,8 +14,8 @@ import (
 
 // Graph produces a directed graph of the notes matching a set of criteria.
 type Graph struct {
-	Format string `group:format short:f                        help:"Format of the graph among: json." enum:"json" required`
-	Quiet  bool   `group:format short:q help:"Do not print the total number of notes found."`
+	Format string `group:"format" short:"f" help:"Format of the graph among: json." enum:"json" required:""`
+	Quiet  bool   `group:"format" short:"q" help:"Do not print the total number of notes found."`
 	cli.Filtering
 }
 

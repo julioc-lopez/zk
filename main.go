@@ -22,26 +22,26 @@ var Version = "dev"
 var Build = "dev"
 
 var root struct {
-	Init  cmd.Init  `cmd group:"zk" help:"Create a new notebook in the given directory."`
-	Index cmd.Index `cmd group:"zk" help:"Index the notes to be searchable."`
+	Init  cmd.Init  `cmd:"" group:"zk" help:"Create a new notebook in the given directory."`
+	Index cmd.Index `cmd:"" group:"zk" help:"Index the notes to be searchable."`
 
-	New   cmd.New   `cmd group:"notes" help:"Create a new note in the given notebook directory."`
-	List  cmd.List  `cmd group:"notes" help:"List notes matching the given criteria."`
-	Graph cmd.Graph `cmd group:"notes" help:"Produce a graph of the notes matching the given criteria."`
-	Edit  cmd.Edit  `cmd group:"notes" help:"Edit notes matching the given criteria."`
-	Tag   cmd.Tag   `cmd group:"notes" help:"Manage the note tags."`
+	New   cmd.New   `cmd:"" group:"notes" help:"Create a new note in the given notebook directory."`
+	List  cmd.List  `cmd:"" group:"notes" help:"List notes matching the given criteria."`
+	Graph cmd.Graph `cmd:"" group:"notes" help:"Produce a graph of the notes matching the given criteria."`
+	Edit  cmd.Edit  `cmd:"" group:"notes" help:"Edit notes matching the given criteria."`
+	Tag   cmd.Tag   `cmd:"" group:"notes" help:"Manage the note tags."`
 
-	NotebookDir string  `type:path placeholder:PATH help:"Turn off notebook auto-discovery and set manually the notebook where commands are run."`
-	WorkingDir  string  `short:W type:path placeholder:PATH help:"Run as if zk was started in <PATH> instead of the current working directory."`
+	NotebookDir string  `type:"path" placeholder:"PATH" help:"Turn off notebook auto-discovery and set manually the notebook where commands are run."`
+	WorkingDir  string  `short:"W" type:"path" placeholder:"PATH" help:"Run as if zk was started in <PATH> instead of the current working directory."`
 	NoInput     NoInput `help:"Never prompt or ask for confirmation."`
 	// ForceInput is a debugging flag overriding the default value of interaction prompts.
-	ForceInput string `hidden xor:"input"`
-	Debug      bool   `default:"0" hidden help:"Print a debug stacktrace on SIGINT."`
-	DebugStyle bool   `default:"0" hidden help:"Force styling output as XML tags."`
+	ForceInput string `hidden:"" xor:"input"`
+	Debug      bool   `default:"0" hidden:"" help:"Print a debug stacktrace on SIGINT."`
+	DebugStyle bool   `default:"0" hidden:"" help:"Force styling output as XML tags."`
 
-	ShowHelp ShowHelp         `cmd hidden default:"1"`
-	LSP      cmd.LSP          `cmd hidden`
-	Version  kong.VersionFlag `hidden help:"Print zk version."`
+	ShowHelp ShowHelp         `cmd:"" hidden:"" default:"1"`
+	LSP      cmd.LSP          `cmd:"" hidden:""`
+	Version  kong.VersionFlag `hidden:"" help:"Print zk version."`
 }
 
 // NoInput is a flag preventing any user prompt when enabled.
