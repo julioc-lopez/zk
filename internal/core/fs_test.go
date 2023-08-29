@@ -1,7 +1,6 @@
 package core
 
 import (
-	"os"
 	"path/filepath"
 )
 
@@ -60,10 +59,6 @@ func (fs *fileStorageMock) DirExists(path string) (bool, error) {
 		}
 	}
 	return false, nil
-}
-
-func (fs *fileStorageMock) fileInfo(path string) (*os.FileInfo, error) {
-	panic("not implemented")
 }
 
 func (fs *fileStorageMock) IsDescendantOf(dir string, path string) (bool, error) {
