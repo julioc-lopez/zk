@@ -28,7 +28,7 @@ func uriToPath(uri string) (string, error) {
 		return "", err
 	}
 	if parsed.Scheme != "file" {
-		return "", errors.New("URI was not a file:// URI")
+		return "", errors.New("scheme in URI was not a file://")
 	}
 
 	if runtime.GOOS == "windows" {
@@ -75,7 +75,7 @@ func linkNote(notebook *core.Notebook, documents *documentStore, context *glsp.C
 	// Get current document to edit
 	doc, ok := documents.Get(info.location.URI)
 	if !ok {
-		return fmt.Errorf("Cannot insert link in '%s'", info.location.URI)
+		return fmt.Errorf("cannot insert link in '%s'", info.location.URI)
 	}
 
 	formatter, err := notebook.NewLinkFormatter()
