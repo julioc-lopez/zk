@@ -155,11 +155,15 @@ func (ni *NoteIndex) fixExistingLinks(dao *dao, id core.NoteID, path string) err
 			continue
 		}
 
-		if matches, err := ni.linkMatchesPath(link, path); matches && err == nil {
-			err = dao.links.SetTargetID(link.ID, id)
-		}
+		matches, err := ni.linkMatchesPath(link, path)
 		if err != nil {
 			return err
+		}
+
+		if matches {
+			if err = dao.links.SetTargetID(link.ID, id); err != nil {
+				return err
+			}
 		}
 	}
 
