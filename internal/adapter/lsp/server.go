@@ -437,8 +437,13 @@ func NewServer(opts ServerOpts) *Server {
 			return nil
 		}
 
-		addAction(wd, "New note in current directory")
-		addAction("", "New note in top directory")
+		if err := addAction(wd, "New note in current directory"); err != nil {
+			return nil, err
+		}
+
+		if err := addAction("", "New note in top directory"); err != nil {
+			return nil, err
+		}
 
 		return actions, nil
 	}
