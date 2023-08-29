@@ -12,6 +12,7 @@ import (
 	"strings"
 
 	"github.com/alecthomas/kong"
+
 	"github.com/mickael-menu/zk/internal/cli"
 	"github.com/mickael-menu/zk/internal/cli/cmd"
 	"github.com/mickael-menu/zk/internal/core"
