@@ -21,7 +21,7 @@ require (
 	github.com/mvdan/xurls v1.1.0
 	github.com/pelletier/go-toml v1.9.5
 	github.com/pkg/errors v0.9.1
-	github.com/relvacode/iso8601 v1.1.0
+	github.com/relvacode/iso8601 v1.3.0
 	github.com/rvflash/elapsed v0.3.0
 	github.com/schollz/progressbar/v3 v3.13.1
 	github.com/tj/go-naturaldate v1.3.0
