@@ -13,7 +13,7 @@ import (
 
 // Init creates a notebook in the given directory
 type Init struct {
-	Directory string `arg optional type:"path" default:"." help:"Directory containing the notebook."`
+	Directory string `arg:"" optional:"" type:"path" default:"." help:"Directory containing the notebook."`
 }
 
 func (cmd *Init) Run(container *cli.Container) error {

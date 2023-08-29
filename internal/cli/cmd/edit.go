@@ -13,7 +13,7 @@ import (
 
 // Edit opens notes matching a set of criteria with the user editor.
 type Edit struct {
-	Force bool `short:f help:"Do not confirm before editing many notes at the same time."`
+	Force bool `short:"f" help:"Do not confirm before editing many notes at the same time."`
 	cli.Filtering
 }
 
