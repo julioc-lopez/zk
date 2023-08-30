@@ -470,8 +470,12 @@ func NewServer(opts ServerOpts) *Server {
 			}
 		}
 
+		if link == nil {
+			return nil, fmt.Errorf("no link for %s:%v", params.TextDocument.URI, params.Position.Line)
+		}
+
 		target, err := server.noteForLink(*link, notebook)
-		if link == nil || target == nil || err != nil {
+		if target == nil || err != nil {
 			return nil, err
 		}
 
