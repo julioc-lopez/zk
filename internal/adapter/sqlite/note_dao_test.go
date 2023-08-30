@@ -213,7 +213,7 @@ func TestNoteDAORemoveCascadeLinks(t *testing.T) {
 		assert.Equal(t, len(links) > 0, true)
 
 		links = queryLinkRows(t, tx, `id = 4`)
-		assert.Equal(t, *links[0].TargetId, core.NoteID(1))
+		assert.Equal(t, *links[0].TargetID, core.NoteID(1))
 
 		err := dao.Remove("log/2021-01-03.md")
 		assert.Nil(t, err)
@@ -222,7 +222,7 @@ func TestNoteDAORemoveCascadeLinks(t *testing.T) {
 		assert.Equal(t, len(links), 0)
 
 		links = queryLinkRows(t, tx, `id = 4`)
-		assert.Nil(t, links[0].TargetId)
+		assert.Nil(t, links[0].TargetID)
 	})
 }
 
