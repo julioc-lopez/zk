@@ -3,7 +3,7 @@ module github.com/zk-org/zk
 go 1.21
 
 require (
-	github.com/AlecAivazis/survey/v2 v2.3.6
+	github.com/AlecAivazis/survey/v2 v2.3.7
 	github.com/alecthomas/kong v0.5.0
 	github.com/aymerick/raymond v2.0.2+incompatible
 	github.com/bmatcuk/doublestar/v4 v4.6.0
