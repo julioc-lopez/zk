@@ -26,9 +26,9 @@ type NoteDAO struct {
 	addStmt                *LazyStmt
 	updateStmt             *LazyStmt
 	removeStmt             *LazyStmt
-	findIdByPathStmt       *LazyStmt
+	findIDByPathStmt       *LazyStmt
 	findIdsByPathRegexStmt *LazyStmt
-	findByIdStmt           *LazyStmt
+	findByIDStmt           *LazyStmt
 }
 
 // NewNoteDAO creates a new instance of a DAO working on the given database
@@ -64,7 +64,7 @@ func NewNoteDAO(tx Transaction, logger util.Logger) *NoteDAO {
 		`),
 
 		// Find a note ID from its exact path.
-		findIdByPathStmt: tx.PrepareLazy(`
+		findIDByPathStmt: tx.PrepareLazy(`
 			SELECT id FROM notes
 			 WHERE path = ?
 		`),
@@ -79,7 +79,7 @@ func NewNoteDAO(tx Transaction, logger util.Logger) *NoteDAO {
 		`),
 
 		// Find a note from its ID.
-		findByIdStmt: tx.PrepareLazy(`
+		findByIDStmt: tx.PrepareLazy(`
 			SELECT id, path, title, lead, body, raw_content, word_count, created, modified, metadata, checksum, tags, lead AS snippet
 			  FROM notes_with_metadata
 			 WHERE id = ?
@@ -144,12 +144,12 @@ func (d *NoteDAO) Add(note core.Note) (core.NoteID, error) {
 		return 0, err
 	}
 
-	lastId, err := res.LastInsertId()
+	lastID, err := res.LastInsertId()
 	if err != nil {
 		return 0, err
 	}
 
-	return core.NoteID(lastId), err
+	return core.NoteID(lastID), err
 }
 
 // Update modifies an existing note.
@@ -196,7 +196,7 @@ func (d *NoteDAO) Remove(path string) error {
 }
 
 func (d *NoteDAO) FindIdByPath(path string) (core.NoteID, error) {
-	row, err := d.findIdByPathStmt.QueryRow(path)
+	row, err := d.findIDByPathStmt.QueryRow(path)
 	if err != nil {
 		return core.NoteID(0), err
 	}
