@@ -41,7 +41,7 @@ func (tx *txWrapper) ExecStmts(stmts []string) error {
 	return err
 }
 
-// A Txfn is a function that will be called with an initialized Transaction
+// A TxFn is a function that will be called with an initialized Transaction
 // object that can be used for executing statements and queries against a
 // database.
 type TxFn func(tx Transaction) error
