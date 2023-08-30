@@ -154,7 +154,7 @@ func (d *NoteDAO) Add(note core.Note) (core.NoteID, error) {
 
 // Update modifies an existing note.
 func (d *NoteDAO) Update(note core.Note) (core.NoteID, error) {
-	id, err := d.FindIdByPath(note.Path)
+	id, err := d.FindIDByPath(note.Path)
 	if err != nil {
 		return 0, err
 	}
@@ -183,7 +183,7 @@ func (d *NoteDAO) metadataToJSON(note core.Note) string {
 
 // Remove deletes the note with the given path from the index.
 func (d *NoteDAO) Remove(path string) error {
-	id, err := d.FindIdByPath(path)
+	id, err := d.FindIDByPath(path)
 	if err != nil {
 		return err
 	}
@@ -195,7 +195,7 @@ func (d *NoteDAO) Remove(path string) error {
 	return err
 }
 
-func (d *NoteDAO) FindIdByPath(path string) (core.NoteID, error) {
+func (d *NoteDAO) FindIDByPath(path string) (core.NoteID, error) {
 	row, err := d.findIDByPathStmt.QueryRow(path)
 	if err != nil {
 		return core.NoteID(0), err
@@ -238,7 +238,7 @@ func (d *NoteDAO) findIdsByPathRegex(regex string) ([]core.NoteID, error) {
 	return ids, nil
 }
 
-func (d *NoteDAO) FindIdByHref(href string, allowPartialHref bool) (core.NoteID, error) {
+func (d *NoteDAO) FindIDByHref(href string, allowPartialHref bool) (core.NoteID, error) {
 	ids, err := d.FindIdsByHref(href, allowPartialHref)
 	if len(ids) == 0 || err != nil {
 		return 0, err
