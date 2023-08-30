@@ -6,7 +6,7 @@ replace github.com/tliron/glsp => github.com/mickael-menu/glsp v0.1.1
 
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
-	github.com/alecthomas/kong v0.5.0
+	github.com/alecthomas/kong v0.8.0
 	github.com/aymerick/raymond v2.0.2+incompatible
 	github.com/bmatcuk/doublestar/v4 v4.6.0
 	github.com/fatih/color v1.15.0
