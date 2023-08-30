@@ -74,7 +74,7 @@ func (ni *NoteIndex) findLinkMatch(dao *dao, baseDir string, href string, linkTy
 	}
 
 	allowPartialMatch := (linkType == core.LinkTypeWikiLink)
-	return dao.notes.FindIdByHref(href, allowPartialMatch)
+	return dao.notes.FindIDByHref(href, allowPartialMatch)
 }
 
 func (ni *NoteIndex) findPathMatch(dao *dao, baseDir string, href string) (core.NoteID, error) {
@@ -82,7 +82,7 @@ func (ni *NoteIndex) findPathMatch(dao *dao, baseDir string, href string) (core.
 	if err != nil {
 		return 0, err
 	}
-	return dao.notes.FindIdByHref(href, false)
+	return dao.notes.FindIDByHref(href, false)
 }
 
 // FindLinksBetweenNotes implements core.NoteIndex.
