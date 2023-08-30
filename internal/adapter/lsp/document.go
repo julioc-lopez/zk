@@ -64,10 +64,10 @@ func (s *documentStore) Get(pathOrURI string) (*document, bool) {
 	return d, ok
 }
 
-func (s *documentStore) normalizePath(pathOrUri string) (string, error) {
-	path, err := uriToPath(pathOrUri)
+func (s *documentStore) normalizePath(pathOrURI string) (string, error) {
+	path, err := uriToPath(pathOrURI)
 	if err != nil {
-		return "", errors.Wrapf(err, "unable to parse URI: %s", pathOrUri)
+		return "", errors.Wrapf(err, "unable to parse URI: %s", pathOrURI)
 	}
 	return s.fs.Canonical(path), nil
 }
