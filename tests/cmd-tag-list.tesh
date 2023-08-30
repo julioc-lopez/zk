@@ -21,7 +21,7 @@ $ zk tag list --help
 >      --footer="\\n"       Arbitrary text printed at the end of the list.
 >  -d, --delimiter="\n"     Print tags delimited by the given separator.
 >  -0, --delimiter0         Print tags delimited by ASCII NUL characters. This is
->                           useful when used in conjunction with `xargs -0`.
+>                           useful when used in conjunction with 'xargs -0'.
 >  -P, --no-pager           Do not pipe output into a pager.
 >  -q, --quiet              Do not print the total number of tags found.
 >
