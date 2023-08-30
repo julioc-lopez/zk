@@ -172,7 +172,7 @@ type LSPCompletionConfig struct {
 	UseAdditionalTextEdits opt.Bool
 }
 
-// LSPCompletionConfig holds the LSP completion templates for a particular
+// LSPCompletionTemplates holds the LSP completion templates for a particular
 // completion item type (e.g. note or tag).
 type LSPCompletionTemplates struct {
 	Label      opt.String
