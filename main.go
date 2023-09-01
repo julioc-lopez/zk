@@ -111,7 +111,7 @@ func main() {
 		}
 
 		err = ctx.Run(container)
-		ctx.FatalIfErrorf(err)
+		ctx.FatalIfErrorf(errors.Unwrap(err))
 	}
 }
 
