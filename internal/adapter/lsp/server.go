@@ -13,11 +13,11 @@ import (
 	"github.com/mickael-menu/zk/internal/util/errors"
 	"github.com/mickael-menu/zk/internal/util/opt"
 	strutil "github.com/mickael-menu/zk/internal/util/strings"
+	"github.com/tliron/commonlog"
+	_ "github.com/tliron/commonlog/simple"
 	"github.com/tliron/glsp"
 	protocol "github.com/tliron/glsp/protocol_3_16"
 	glspserv "github.com/tliron/glsp/server"
-	"github.com/tliron/kutil/logging"
-	_ "github.com/tliron/kutil/logging/simple"
 )
 
 // Server holds the state of the Language Server.
@@ -48,7 +48,7 @@ func NewServer(opts ServerOpts) *Server {
 	fs := opts.FS
 	debug := !opts.LogFile.IsNull()
 	if debug {
-		logging.Configure(10, opts.LogFile.Value)
+		commonlog.Configure(10, opts.LogFile.Value)
 	}
 
 	handler := protocol.Handler{}
