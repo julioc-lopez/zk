@@ -22,7 +22,7 @@ $ zk list --help
 >                           of the predefined formats: oneline, short, medium,
 >                           long, full, json, jsonl.
 >      --header=STRING      Arbitrary text printed at the start of the list.
->      --footer="\\n"       Arbitrary text printed at the end of the list.
+>      --footer="\n"        Arbitrary text printed at the end of the list.
 >  -d, --delimiter="\n"     Print notes delimited by the given separator.
 >  -0, --delimiter0         Print notes delimited by ASCII NUL characters. This
 >                           is useful when used in conjunction with 'xargs -0'.
