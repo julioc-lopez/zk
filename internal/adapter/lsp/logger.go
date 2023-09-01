@@ -3,16 +3,16 @@ package lsp
 import (
 	"fmt"
 
-	"github.com/tliron/kutil/logging"
+	"github.com/tliron/commonlog"
 )
 
 // glspLogger is a Logger wrapping the GLSP one.
 // Can be used to change the active logger during runtime.
 type glspLogger struct {
-	log logging.Logger
+	log commonlog.Logger
 }
 
-func newGlspLogger(log logging.Logger) *glspLogger {
+func newGlspLogger(log commonlog.Logger) *glspLogger {
 	return &glspLogger{log}
 }
 
