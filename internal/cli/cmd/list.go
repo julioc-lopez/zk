@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
 
 	"github.com/zk-org/zk/internal/adapter/fzf"
@@ -23,10 +24,29 @@ type List struct {
 	cli.Filtering
 }
 
+func (cmd *List) BeforeResolve() error {
+	log.Printf("previous delimiter: '%q'", cmd.Delimiter)
+	log.Printf("previous delimiter: '%s'", cmd.Delimiter)
+	cmd.Delimiter = "\nfoo"
+	log.Println("BeforeResolve() called")
+
+	return nil
+}
+
+func (cmd *List) BeforeApply(container *cli.Container) error {
+	// cmd.Delimiter = "\nx"
+	log.Println("BeforeApply() called")
+
+	return nil
+}
+
 func (cmd *List) Run(container *cli.Container) error {
 	cmd.Header = strings.ExpandWhitespaceLiterals(cmd.Header)
 	cmd.Footer = strings.ExpandWhitespaceLiterals(cmd.Footer)
 	cmd.Delimiter = strings.ExpandWhitespaceLiterals(cmd.Delimiter)
+
+	// log.Printf("cmd.Delimiter: '%q'", cmd.Delimiter)
+	// log.Printf("cmd.Delimiter: '%s'", cmd.Delimiter)
 
 	if cmd.Delimiter0 {
 		if cmd.Delimiter != "\n" {
