@@ -2,8 +2,6 @@ module github.com/mickael-menu/zk
 
 go 1.20
 
-replace github.com/tliron/glsp => github.com/mickael-menu/glsp v0.1.1
-
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
 	github.com/alecthomas/kong v0.8.0
