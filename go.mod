@@ -25,7 +25,7 @@ require (
 	github.com/tj/go-naturaldate v1.3.0
 	github.com/tliron/glsp v0.1.1
 	github.com/tliron/kutil v0.1.63
-	github.com/yuin/goldmark v1.5.6
+	github.com/yuin/goldmark v1.6.0
 	github.com/yuin/goldmark-meta v1.1.0
 	gopkg.in/djherbis/times.v1 v1.3.0
 )
