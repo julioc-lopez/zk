@@ -238,7 +238,13 @@ func TestFormatDateHelper(t *testing.T) {
 	testString(t, "{{format-date now 'timestamp'}}", context, "200911172034")
 	testString(t, "{{format-date now 'timestamp-unix'}}", context, "1258490098")
 	testString(t, "{{format-date now 'cust: %Y-%m'}}", context, "cust: 2009-11")
-	testString(t, "{{format-date now 'elapsed'}}", context, "14 years ago")
+}
+
+// This test is not stable and needs to be updated once a year on Nov 21 UTC
+func TestFormatDateHelperElapsed(t *testing.T) {
+	context := map[string]interface{}{"now": time.Date(2009, 11, 21, 0, 0, 0, 0, time.UTC)}
+
+	testString(t, "{{format-date now 'elapsed'}}", context, "15 years ago")
 }
 
 func TestDateHelper(t *testing.T) {
