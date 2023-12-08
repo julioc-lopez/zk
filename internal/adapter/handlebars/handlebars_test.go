@@ -241,7 +241,7 @@ func TestFormatDateHelper(t *testing.T) {
 }
 
 // This test is not stable and needs to be updated once a year on Nov 21 UTC
-func TestFormatDateHelperElapsed(t *testing.T) {
+func TestFormatDateHelperElapsedStatic(t *testing.T) {
 	context := map[string]interface{}{"now": time.Date(2009, 11, 21, 0, 0, 0, 0, time.UTC)}
 
 	testString(t, "{{format-date now 'elapsed'}}", context, "15 years ago")
