@@ -62,7 +62,7 @@ jobs:
         install-go: false
     -
       name: golangci-lint
-      uses: golangci/golangci-lint-action@v3
+      uses: golangci/golangci-lint-action@v4
       with:
         args: "--build-tags fts5"
         version: v1.54
