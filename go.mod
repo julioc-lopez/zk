@@ -7,7 +7,7 @@ require (
 	github.com/alecthomas/kong v0.8.0
 	github.com/aymerick/raymond v2.0.2+incompatible
 	github.com/bmatcuk/doublestar/v4 v4.6.1
-	github.com/fatih/color v1.15.0
+	github.com/fatih/color v1.16.0
 	github.com/go-testfixtures/testfixtures/v3 v3.9.0
 	github.com/google/go-cmp v0.6.0
 	github.com/gosimple/slug v1.13.1
@@ -22,8 +22,8 @@ require (
 	github.com/rvflash/elapsed v0.3.0
 	github.com/schollz/progressbar/v3 v3.14.1
 	github.com/tj/go-naturaldate v1.3.0
-	github.com/tliron/commonlog v0.1.1
-	github.com/tliron/glsp v0.2.0
+	github.com/tliron/commonlog v0.2.8
+	github.com/tliron/glsp v0.2.2
 	github.com/yuin/goldmark v1.6.0
 	github.com/yuin/goldmark-meta v1.1.0
 	github.com/zk-org/pretty v0.2.4
@@ -38,10 +38,10 @@ require (
 	github.com/go-faster/city v1.0.1 // indirect
 	github.com/go-faster/errors v0.6.1 // indirect
 	github.com/google/uuid v1.3.0 // indirect
-	github.com/gorilla/websocket v1.5.0 // indirect
+	github.com/gorilla/websocket v1.5.1 // indirect
 	github.com/gosimple/unidecode v1.0.1 // indirect
-	github.com/iancoleman/strcase v0.2.0 // indirect
-	github.com/klauspost/compress v1.16.6 // indirect
+	github.com/iancoleman/strcase v0.3.0 // indirect
+	github.com/klauspost/compress v1.17.3 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
@@ -58,12 +58,11 @@ require (
 	github.com/segmentio/asm v1.2.0 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/sourcegraph/jsonrpc2 v0.2.0 // indirect
-	github.com/tliron/kutil v0.2.6 // indirect
-	github.com/vmihailenco/msgpack/v5 v5.3.5 // indirect
-	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
+	github.com/tliron/kutil v0.3.11 // indirect
 	go.opentelemetry.io/otel v1.15.0 // indirect
 	go.opentelemetry.io/otel/trace v1.15.0 // indirect
 	golang.org/x/crypto v0.17.0 // indirect
+	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
 	golang.org/x/term v0.15.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
