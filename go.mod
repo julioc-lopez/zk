@@ -7,7 +7,7 @@ require (
 	github.com/alecthomas/kong v0.8.0
 	github.com/aymerick/raymond v2.0.2+incompatible
 	github.com/bmatcuk/doublestar/v4 v4.6.1
-	github.com/fatih/color v1.15.0
+	github.com/fatih/color v1.17.0
 	github.com/go-testfixtures/testfixtures/v3 v3.9.0
 	github.com/google/go-cmp v0.6.0
 	github.com/gosimple/slug v1.13.1
@@ -64,7 +64,7 @@ require (
 	go.opentelemetry.io/otel v1.15.0 // indirect
 	go.opentelemetry.io/otel/trace v1.15.0 // indirect
 	golang.org/x/crypto v0.17.0 // indirect
-	golang.org/x/sys v0.15.0 // indirect
+	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/term v0.15.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
